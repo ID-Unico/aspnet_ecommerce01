@@ -1,0 +1,71 @@
+﻿@model Category
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-black">Create Category </h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+
+        <form method="post" class="row">
+            <div class="border p-3">
+                <!-- border adds a border around the div, p-3 adds padding, mt-4 adds top margin -->
+
+               @*  <div class="row pb-2">
+                    <!-- row creates a row for organizing columns, pb-2 adds bottom padding -->
+                    <h2 class="text-primary">Create Category</h2>
+                    <!-- text-primary applies the primary color (usually blue) to the text -->
+                    <hr />
+                    <!-- hr adds a horizontal line -->
+                </div> *@
+
+               @*  <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+                <!-- text-danger applies red color to the text, used for displaying validation errors -->
+
+                <div class="form-floating py-2 col-12">
+                    <!-- p-0 removes padding -->
+                    <input asp-for="Name" type="text" class="form-control border-0 shadow" />
+                    <!-- mb-3 adds bottom margin, row creates a row, p-1 adds padding -->
+                    <label asp-for="Name" class="ms-2"></label>
+                    <!-- form-control applies Bootstrap styling to the input -->
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <!-- text-danger applies red color to the validation message -->
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <!-- p-0 removes padding -->
+                    <input asp-for="DisplayOrder" type="text" class="form-control border-0 shadow" />
+                    <!-- mb-3 adds bottom margin, row creates a row, p-1 adds padding -->
+                    <label asp-for="DisplayOrder" class="ms-2"></label>
+                    <!-- form-control applies Bootstrap styling to the input -->
+                    <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+                    <!-- text-danger applies red color to the validation message -->
+                </div>
+
+                <div class="row pt-2">
+                    <!-- row creates a row for organizing columns -->
+                    <div class="col-6 col-md-3">
+                        <!-- col-6 defines a column that occupies 6 out of 12 parts of the row, col-md-3 defines a column that occupies 3 out of 12 parts on medium and larger screens -->
+                        <button type="submit" class="btn btn-primary form-control">Create</button>
+                        <!-- btn applies button styles, btn-primary applies blue color, form-control makes the button full-width within its column -->
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <!-- col-6 defines a column that occupies 6 out of 12 parts of the row, col-md-3 defines a column that occupies 3 out of 12 parts on medium and larger screens -->
+                        <a asp-controller="Category" asp-action="Index" class="btn btn-outline-primary form-control border">
+                            <!-- btn applies button styles, btn-secondary applies gray color, form-control makes the button full-width within its column, border adds a border -->
+                            Back to list
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
